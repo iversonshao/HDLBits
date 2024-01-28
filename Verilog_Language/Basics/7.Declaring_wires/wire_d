@@ -1,0 +1,40 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000017f35ed27f0 .scope module, "top_module" "top_module" 2 2;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "c";
+    .port_info 3 /INPUT 1 "d";
+    .port_info 4 /OUTPUT 1 "out";
+    .port_info 5 /OUTPUT 1 "out_n";
+o0000017f35f06f98 .functor BUFZ 1, C4<z>; HiZ drive
+o0000017f35f07028 .functor BUFZ 1, C4<z>; HiZ drive
+L_0000017f3605dad0 .functor AND 1, o0000017f35f06f98, o0000017f35f07028, C4<1>, C4<1>;
+o0000017f35f07058 .functor BUFZ 1, C4<z>; HiZ drive
+o0000017f35f07088 .functor BUFZ 1, C4<z>; HiZ drive
+L_0000017f3605dda0 .functor AND 1, o0000017f35f07058, o0000017f35f07088, C4<1>, C4<1>;
+L_0000017f3605e880 .functor OR 1, L_0000017f3605dad0, L_0000017f3605dda0, C4<0>, C4<0>;
+L_0000017f3605eb40 .functor BUFZ 1, L_0000017f3605e880, C4<0>, C4<0>, C4<0>;
+L_0000017f35ed32b0 .functor NOT 1, L_0000017f3605e880, C4<0>, C4<0>, C4<0>;
+v0000017f35ed3090_0 .net "a", 0 0, o0000017f35f06f98;  0 drivers
+v0000017f3605eaa0_0 .net "a1", 0 0, L_0000017f3605dad0;  1 drivers
+v0000017f3605e7e0_0 .net "a2", 0 0, L_0000017f3605dda0;  1 drivers
+v0000017f3605dd00_0 .net "b", 0 0, o0000017f35f07028;  0 drivers
+v0000017f3605da30_0 .net "c", 0 0, o0000017f35f07058;  0 drivers
+v0000017f3605bce0_0 .net "d", 0 0, o0000017f35f07088;  0 drivers
+v0000017f3605bd80_0 .net "o1", 0 0, L_0000017f3605e880;  1 drivers
+v0000017f3605be20_0 .net "out", 0 0, L_0000017f3605eb40;  1 drivers
+v0000017f35ed2980_0 .net "out_n", 0 0, L_0000017f35ed32b0;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "wire_decl.v";
