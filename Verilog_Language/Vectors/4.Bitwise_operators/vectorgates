@@ -1,0 +1,41 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000025936192770 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 3 "a";
+    .port_info 1 /INPUT 3 "b";
+    .port_info 2 /OUTPUT 3 "out_or_bitwise";
+    .port_info 3 /OUTPUT 1 "out_or_logical";
+    .port_info 4 /OUTPUT 6 "out_not";
+o00000259361c70c8 .functor BUFZ 3, C4<zzz>; HiZ drive
+o00000259361c70f8 .functor BUFZ 3, C4<zzz>; HiZ drive
+L_0000025936178190 .functor OR 3, o00000259361c70c8, o00000259361c70f8, C4<000>, C4<000>;
+L_0000025936179a20 .functor OR 1, L_00000259361c0a20, L_00000259361c0ac0, C4<0>, C4<0>;
+L_00000259361c1b70 .functor NOT 6, L_00000259361c11f0, C4<000000>, C4<000000>, C4<000000>;
+v0000025936192f40_0 .net *"_ivl_12", 5 0, L_00000259361c11f0;  1 drivers
+L_0000025936207c38 .functor BUFT 1, C4<000>, C4<0>, C4<0>, C4<0>;
+v0000025936179980_0 .net/2u *"_ivl_2", 2 0, L_0000025936207c38;  1 drivers
+v00000259361780f0_0 .net *"_ivl_4", 0 0, L_00000259361c0a20;  1 drivers
+L_0000025936207c80 .functor BUFT 1, C4<000>, C4<0>, C4<0>, C4<0>;
+v0000025936192900_0 .net/2u *"_ivl_6", 2 0, L_0000025936207c80;  1 drivers
+v00000259361929a0_0 .net *"_ivl_8", 0 0, L_00000259361c0ac0;  1 drivers
+v0000025936192a40_0 .net "a", 2 0, o00000259361c70c8;  0 drivers
+v0000025936192ae0_0 .net "b", 2 0, o00000259361c70f8;  0 drivers
+v00000259361c0840_0 .net "out_not", 5 0, L_00000259361c1b70;  1 drivers
+v00000259361c08e0_0 .net "out_or_bitwise", 2 0, L_0000025936178190;  1 drivers
+v00000259361c0980_0 .net "out_or_logical", 0 0, L_0000025936179a20;  1 drivers
+L_00000259361c0a20 .cmp/ne 3, o00000259361c70c8, L_0000025936207c38;
+L_00000259361c0ac0 .cmp/ne 3, o00000259361c70f8, L_0000025936207c80;
+L_00000259361c11f0 .concat [ 3 3 0 0], o00000259361c70c8, o00000259361c70f8;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "vectorgates.v";
