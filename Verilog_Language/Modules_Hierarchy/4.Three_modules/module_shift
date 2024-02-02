@@ -1,0 +1,72 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000016578b859e0 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "d";
+    .port_info 2 /OUTPUT 1 "q";
+o0000016578b86fa8 .functor BUFZ 1, C4<z>; HiZ drive
+v0000016578b81690_0 .net "clk", 0 0, o0000016578b86fa8;  0 drivers
+o0000016578b86fd8 .functor BUFZ 1, C4<z>; HiZ drive
+v0000016578b81730_0 .net "d", 0 0, o0000016578b86fd8;  0 drivers
+v0000016578b817d0_0 .net "d1", 0 0, v0000016578b52ff0_0;  1 drivers
+v0000016578b81870_0 .net "d2", 0 0, v0000016578b81280_0;  1 drivers
+v0000016578b81910_0 .net "q", 0 0, v0000016578b815f0_0;  1 drivers
+S_0000016578b85b70 .scope module, "dff1" "my_dff" 2 6, 2 12 0, S_0000016578b859e0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "d";
+    .port_info 2 /OUTPUT 1 "q";
+v0000016578b52dd0_0 .net "clk", 0 0, o0000016578b86fa8;  alias, 0 drivers
+v0000016578b52b70_0 .net "d", 0 0, o0000016578b86fd8;  alias, 0 drivers
+v0000016578b52ff0_0 .var "q", 0 0;
+E_000001657885c970 .event posedge, v0000016578b52dd0_0;
+S_0000016578b81050 .scope module, "dff2" "my_dff" 2 7, 2 12 0, S_0000016578b859e0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "d";
+    .port_info 2 /OUTPUT 1 "q";
+v000001657885bf30_0 .net "clk", 0 0, o0000016578b86fa8;  alias, 0 drivers
+v0000016578b811e0_0 .net "d", 0 0, v0000016578b52ff0_0;  alias, 1 drivers
+v0000016578b81280_0 .var "q", 0 0;
+S_0000016578b81320 .scope module, "dff3" "my_dff" 2 8, 2 12 0, S_0000016578b859e0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "d";
+    .port_info 2 /OUTPUT 1 "q";
+v0000016578b814b0_0 .net "clk", 0 0, o0000016578b86fa8;  alias, 0 drivers
+v0000016578b81550_0 .net "d", 0 0, v0000016578b81280_0;  alias, 1 drivers
+v0000016578b815f0_0 .var "q", 0 0;
+    .scope S_0000016578b85b70;
+T_0 ;
+    %wait E_000001657885c970;
+    %load/vec4 v0000016578b52b70_0;
+    %assign/vec4 v0000016578b52ff0_0, 0;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0000016578b81050;
+T_1 ;
+    %wait E_000001657885c970;
+    %load/vec4 v0000016578b811e0_0;
+    %assign/vec4 v0000016578b81280_0, 0;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0000016578b81320;
+T_2 ;
+    %wait E_000001657885c970;
+    %load/vec4 v0000016578b81550_0;
+    %assign/vec4 v0000016578b815f0_0, 0;
+    %jmp T_2;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "module_shift.v";

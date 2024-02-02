@@ -1,0 +1,33 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000027bbbb35200 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "out";
+o0000027bbbb36ee8 .functor BUFZ 1, C4<z>; HiZ drive
+v0000027bbbb35520_0 .net "a", 0 0, o0000027bbbb36ee8;  0 drivers
+o0000027bbbb36f18 .functor BUFZ 1, C4<z>; HiZ drive
+v0000027bbbb355c0_0 .net "b", 0 0, o0000027bbbb36f18;  0 drivers
+o0000027bbbb36f48 .functor BUFZ 1, C4<z>; HiZ drive
+v0000027bbbc7d730_0 .net "out", 0 0, o0000027bbbb36f48;  0 drivers
+S_0000027bbbb35390 .scope module, "a1" "mod_a" 2 5, 2 8 0, S_0000027bbbb35200;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "in1";
+    .port_info 1 /INPUT 1 "in2";
+    .port_info 2 /OUTPUT 1 "out";
+v0000027bbbb02e70_0 .net "in1", 0 0, o0000027bbbb36ee8;  alias, 0 drivers
+v0000027bbbb02c10_0 .net "in2", 0 0, o0000027bbbb36f18;  alias, 0 drivers
+v0000027bbbb03090_0 .net "out", 0 0, o0000027bbbb36f48;  alias, 0 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "module.v";

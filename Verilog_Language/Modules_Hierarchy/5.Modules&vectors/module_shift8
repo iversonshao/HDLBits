@@ -1,0 +1,120 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001e9d280cff0 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 8 "d";
+    .port_info 2 /INPUT 2 "sel";
+    .port_info 3 /OUTPUT 8 "q";
+o000001e9d2ac6f98 .functor BUFZ 1, C4<z>; HiZ drive
+v000001e9d2ac40b0_0 .net "clk", 0 0, o000001e9d2ac6f98;  0 drivers
+o000001e9d2ac6fc8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v000001e9d2ac4150_0 .net "d", 7 0, o000001e9d2ac6fc8;  0 drivers
+v000001e9d2ac41f0_0 .net "d1", 7 0, v000001e9d2a93160_0;  1 drivers
+v000001e9d2ac4290_0 .net "d2", 7 0, v000001e9d280d3b0_0;  1 drivers
+v000001e9d2ac4740_0 .net "d3", 7 0, v000001e9d280bef0_0;  1 drivers
+v000001e9d2b0a020_0 .var "q", 7 0;
+o000001e9d2ac7268 .functor BUFZ 2, C4<zz>; HiZ drive
+v000001e9d2b0acf0_0 .net "sel", 1 0, o000001e9d2ac7268;  0 drivers
+E_000001e9d280c2b0/0 .event anyedge, v000001e9d2b0acf0_0, v000001e9d2a92b70_0, v000001e9d2a93160_0, v000001e9d280d3b0_0;
+E_000001e9d280c2b0/1 .event anyedge, v000001e9d280bef0_0;
+E_000001e9d280c2b0 .event/or E_000001e9d280c2b0/0, E_000001e9d280c2b0/1;
+S_000001e9d280d180 .scope module, "dff1" "my_dff8" 2 8, 2 24 0, S_000001e9d280cff0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 8 "d";
+    .port_info 2 /OUTPUT 8 "q";
+v000001e9d2a92dd0_0 .net "clk", 0 0, o000001e9d2ac6f98;  alias, 0 drivers
+v000001e9d2a92b70_0 .net "d", 7 0, o000001e9d2ac6fc8;  alias, 0 drivers
+v000001e9d2a93160_0 .var "q", 7 0;
+E_000001e9d280c370 .event posedge, v000001e9d2a92dd0_0;
+S_000001e9d280ba90 .scope module, "dff2" "my_dff8" 2 9, 2 24 0, S_000001e9d280cff0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 8 "d";
+    .port_info 2 /OUTPUT 8 "q";
+v000001e9d280aaa0_0 .net "clk", 0 0, o000001e9d2ac6f98;  alias, 0 drivers
+v000001e9d280d310_0 .net "d", 7 0, v000001e9d2a93160_0;  alias, 1 drivers
+v000001e9d280d3b0_0 .var "q", 7 0;
+S_000001e9d280bc20 .scope module, "dff3" "my_dff8" 2 10, 2 24 0, S_000001e9d280cff0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 8 "d";
+    .port_info 2 /OUTPUT 8 "q";
+v000001e9d280bdb0_0 .net "clk", 0 0, o000001e9d2ac6f98;  alias, 0 drivers
+v000001e9d280be50_0 .net "d", 7 0, v000001e9d280d3b0_0;  alias, 1 drivers
+v000001e9d280bef0_0 .var "q", 7 0;
+    .scope S_000001e9d280d180;
+T_0 ;
+    %wait E_000001e9d280c370;
+    %load/vec4 v000001e9d2a92b70_0;
+    %assign/vec4 v000001e9d2a93160_0, 0;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_000001e9d280ba90;
+T_1 ;
+    %wait E_000001e9d280c370;
+    %load/vec4 v000001e9d280d310_0;
+    %assign/vec4 v000001e9d280d3b0_0, 0;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_000001e9d280bc20;
+T_2 ;
+    %wait E_000001e9d280c370;
+    %load/vec4 v000001e9d280be50_0;
+    %assign/vec4 v000001e9d280bef0_0, 0;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_000001e9d280cff0;
+T_3 ;
+    %wait E_000001e9d280c2b0;
+    %load/vec4 v000001e9d2b0acf0_0;
+    %dup/vec4;
+    %pushi/vec4 0, 0, 2;
+    %cmp/u;
+    %jmp/1 T_3.0, 6;
+    %dup/vec4;
+    %pushi/vec4 1, 0, 2;
+    %cmp/u;
+    %jmp/1 T_3.1, 6;
+    %dup/vec4;
+    %pushi/vec4 2, 0, 2;
+    %cmp/u;
+    %jmp/1 T_3.2, 6;
+    %dup/vec4;
+    %pushi/vec4 3, 0, 2;
+    %cmp/u;
+    %jmp/1 T_3.3, 6;
+    %jmp T_3.4;
+T_3.0 ;
+    %load/vec4 v000001e9d2ac4150_0;
+    %store/vec4 v000001e9d2b0a020_0, 0, 8;
+    %jmp T_3.4;
+T_3.1 ;
+    %load/vec4 v000001e9d2ac41f0_0;
+    %store/vec4 v000001e9d2b0a020_0, 0, 8;
+    %jmp T_3.4;
+T_3.2 ;
+    %load/vec4 v000001e9d2ac4290_0;
+    %store/vec4 v000001e9d2b0a020_0, 0, 8;
+    %jmp T_3.4;
+T_3.3 ;
+    %load/vec4 v000001e9d2ac4740_0;
+    %store/vec4 v000001e9d2b0a020_0, 0, 8;
+    %jmp T_3.4;
+T_3.4 ;
+    %pop/vec4 1;
+    %jmp T_3;
+    .thread T_3, $push;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "module_shift8.v";
