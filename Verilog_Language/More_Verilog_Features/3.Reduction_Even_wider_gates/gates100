@@ -1,0 +1,28 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001f76be227f0 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 100 "in";
+    .port_info 1 /OUTPUT 1 "out_and";
+    .port_info 2 /OUTPUT 1 "out_or";
+    .port_info 3 /OUTPUT 1 "out_xor";
+o000001f76be568c8 .functor BUFZ 100, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v000001f76be231e0_0 .net "in", 99 0, o000001f76be568c8;  0 drivers
+v000001f76be56420_0 .net "out_and", 0 0, L_000001f76be22ac0;  1 drivers
+v000001f76be22980_0 .net "out_or", 0 0, L_000001f76be22b60;  1 drivers
+v000001f76be22a20_0 .net "out_xor", 0 0, L_000001f76be22c00;  1 drivers
+L_000001f76be22ac0 .reduce/and o000001f76be568c8;
+L_000001f76be22b60 .reduce/or o000001f76be568c8;
+L_000001f76be22c00 .reduce/xor o000001f76be568c8;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "gates100.v";
