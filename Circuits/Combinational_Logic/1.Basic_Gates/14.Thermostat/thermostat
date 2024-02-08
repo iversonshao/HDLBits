@@ -1,0 +1,41 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001f5b3092b30 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "too_cold";
+    .port_info 1 /INPUT 1 "too_hot";
+    .port_info 2 /INPUT 1 "mode";
+    .port_info 3 /INPUT 1 "fan_on";
+    .port_info 4 /OUTPUT 1 "heater";
+    .port_info 5 /OUTPUT 1 "aircon";
+    .port_info 6 /OUTPUT 1 "fan";
+o000001f5b30c70d8 .functor BUFZ 1, C4<z>; HiZ drive
+o000001f5b30c7108 .functor BUFZ 1, C4<z>; HiZ drive
+L_000001f5b30c6ca0 .functor AND 1, o000001f5b30c70d8, o000001f5b30c7108, C4<1>, C4<1>;
+o000001f5b30c7138 .functor BUFZ 1, C4<z>; HiZ drive
+L_000001f5b3219170 .functor AND 1, L_000001f5b321edd0, o000001f5b30c7138, C4<1>, C4<1>;
+L_000001f5b30931d0 .functor OR 1, L_000001f5b30c6ca0, L_000001f5b3219170, C4<0>, C4<0>;
+o000001f5b30c7078 .functor BUFZ 1, C4<z>; HiZ drive
+L_000001f5b30933d0 .functor OR 1, L_000001f5b30931d0, o000001f5b30c7078, C4<0>, C4<0>;
+v000001f5b32190d0_0 .net *"_ivl_3", 0 0, L_000001f5b321edd0;  1 drivers
+v000001f5b30c6c00_0 .net *"_ivl_6", 0 0, L_000001f5b30931d0;  1 drivers
+v000001f5b3092cc0_0 .net "aircon", 0 0, L_000001f5b3219170;  1 drivers
+v000001f5b3092d60_0 .net "fan", 0 0, L_000001f5b30933d0;  1 drivers
+v000001f5b3092e00_0 .net "fan_on", 0 0, o000001f5b30c7078;  0 drivers
+v000001f5b3092ea0_0 .net "heater", 0 0, L_000001f5b30c6ca0;  1 drivers
+v000001f5b3092f40_0 .net "mode", 0 0, o000001f5b30c70d8;  0 drivers
+v000001f5b321ec00_0 .net "too_cold", 0 0, o000001f5b30c7108;  0 drivers
+v000001f5b321eca0_0 .net "too_hot", 0 0, o000001f5b30c7138;  0 drivers
+L_000001f5b321edd0 .reduce/nor o000001f5b30c70d8;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "thermostat.v";
