@@ -1,0 +1,42 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001a1e3f62830 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "cout";
+    .port_info 3 /OUTPUT 1 "sum";
+o000001a1e3f970c8 .functor BUFZ 1, C4<z>; HiZ drive
+o000001a1e3f970f8 .functor BUFZ 1, C4<z>; HiZ drive
+L_000001a1e3f96520 .functor AND 1, o000001a1e3f970c8, o000001a1e3f970f8, C4<1>, C4<1>;
+L_000001a1e3f62eb0 .functor XOR 1, o000001a1e3f970c8, o000001a1e3f970f8, C4<0>, C4<0>;
+L_000001a1e3fd7c80 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v000001a1e3f96480_0 .net *"_ivl_10", 0 0, L_000001a1e3fd7c80;  1 drivers
+v000001a1e3f629c0_0 .net *"_ivl_11", 1 0, L_000001a1e3f90e30;  1 drivers
+v000001a1e3f62a60_0 .net *"_ivl_3", 1 0, L_000001a1e3f91010;  1 drivers
+L_000001a1e3fd7c38 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v000001a1e3f62b00_0 .net *"_ivl_6", 0 0, L_000001a1e3fd7c38;  1 drivers
+v000001a1e3f62ba0_0 .net *"_ivl_7", 1 0, L_000001a1e3f90bb0;  1 drivers
+v000001a1e3f62c40_0 .net "a", 0 0, o000001a1e3f970c8;  0 drivers
+v000001a1e3f4e1f0_0 .net "b", 0 0, o000001a1e3f970f8;  0 drivers
+RS_000001a1e3f97128 .resolv tri, L_000001a1e3f4e460, L_000001a1e3f96520;
+v000001a1e3f4e290_0 .net8 "cout", 0 0, RS_000001a1e3f97128;  2 drivers
+RS_000001a1e3f97158 .resolv tri, L_000001a1e3f4e500, L_000001a1e3f62eb0;
+v000001a1e3f4e330_0 .net8 "sum", 0 0, RS_000001a1e3f97158;  2 drivers
+L_000001a1e3f4e460 .part L_000001a1e3f90e30, 1, 1;
+L_000001a1e3f4e500 .part L_000001a1e3f90e30, 0, 1;
+L_000001a1e3f91010 .concat [ 1 1 0 0], o000001a1e3f970c8, L_000001a1e3fd7c38;
+L_000001a1e3f90bb0 .concat [ 1 1 0 0], o000001a1e3f970f8, L_000001a1e3fd7c80;
+L_000001a1e3f90e30 .arith/sum 2, L_000001a1e3f91010, L_000001a1e3f90bb0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "hadd.v";
