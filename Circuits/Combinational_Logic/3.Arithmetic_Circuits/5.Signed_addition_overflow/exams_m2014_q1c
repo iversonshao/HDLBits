@@ -1,0 +1,40 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000208ea2927f0 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 8 "a";
+    .port_info 1 /INPUT 8 "b";
+    .port_info 2 /OUTPUT 8 "s";
+    .port_info 3 /OUTPUT 1 "overflow";
+L_00000208ea293330 .functor XNOR 1, L_00000208ea308f60, L_00000208ea3089c0, C4<0>, C4<0>;
+L_00000208ea27eaf0 .functor XOR 1, L_00000208ea308560, L_00000208ea3087e0, C4<0>, C4<0>;
+L_00000208ea27eb60 .functor AND 1, L_00000208ea293330, L_00000208ea27eaf0, C4<1>, C4<1>;
+v00000208ea292fe0_0 .net *"_ivl_11", 0 0, L_00000208ea3087e0;  1 drivers
+v00000208ea292980_0 .net *"_ivl_12", 0 0, L_00000208ea27eaf0;  1 drivers
+v00000208ea292a20_0 .net *"_ivl_3", 0 0, L_00000208ea308f60;  1 drivers
+v00000208ea292ac0_0 .net *"_ivl_5", 0 0, L_00000208ea3089c0;  1 drivers
+v00000208ea292b60_0 .net *"_ivl_6", 0 0, L_00000208ea293330;  1 drivers
+v00000208ea292c00_0 .net *"_ivl_9", 0 0, L_00000208ea308560;  1 drivers
+o00000208ea2c70b8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v00000208ea27e7e0_0 .net "a", 7 0, o00000208ea2c70b8;  0 drivers
+o00000208ea2c70e8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v00000208ea27e880_0 .net "b", 7 0, o00000208ea2c70e8;  0 drivers
+v00000208ea27e920_0 .net "overflow", 0 0, L_00000208ea27eb60;  1 drivers
+v00000208ea27ea50_0 .net "s", 7 0, L_00000208ea3082e0;  1 drivers
+L_00000208ea3082e0 .arith/sum 8, o00000208ea2c70b8, o00000208ea2c70e8;
+L_00000208ea308f60 .part o00000208ea2c70b8, 7, 1;
+L_00000208ea3089c0 .part o00000208ea2c70e8, 7, 1;
+L_00000208ea308560 .part L_00000208ea3082e0, 7, 1;
+L_00000208ea3087e0 .part o00000208ea2c70b8, 7, 1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "exams_m2014_q1c.v";
