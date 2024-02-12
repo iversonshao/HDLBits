@@ -1,0 +1,42 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001731afe27f0 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "x";
+    .port_info 1 /OUTPUT 1 "f";
+L_000001731b1ce3a0 .functor NOT 1, L_000001731b0109d0, C4<0>, C4<0>, C4<0>;
+L_000001731b1ce410 .functor AND 1, L_000001731b1ce3a0, L_000001731b010ed0, C4<1>, C4<1>;
+L_000001731b1ce510 .functor NOT 1, L_000001731b011470, C4<0>, C4<0>, C4<0>;
+L_000001731b1ce580 .functor AND 1, L_000001731b010c50, L_000001731b1ce510, C4<1>, C4<1>;
+L_000001731b1ce5f0 .functor AND 1, L_000001731b1ce580, L_000001731b010bb0, C4<1>, C4<1>;
+L_000001731b1ce660 .functor OR 1, L_000001731b1ce410, L_000001731b1ce5f0, C4<0>, C4<0>;
+v000001731afe2fe0_0 .net *"_ivl_1", 0 0, L_000001731b0109d0;  1 drivers
+v000001731afe3200_0 .net *"_ivl_11", 0 0, L_000001731b011470;  1 drivers
+v000001731afe2980_0 .net *"_ivl_12", 0 0, L_000001731b1ce510;  1 drivers
+v000001731afe2a20_0 .net *"_ivl_14", 0 0, L_000001731b1ce580;  1 drivers
+v000001731afe2ac0_0 .net *"_ivl_17", 0 0, L_000001731b010bb0;  1 drivers
+v000001731afe2b60_0 .net *"_ivl_18", 0 0, L_000001731b1ce5f0;  1 drivers
+v000001731b010e30_0 .net *"_ivl_2", 0 0, L_000001731b1ce3a0;  1 drivers
+v000001731b010a70_0 .net *"_ivl_5", 0 0, L_000001731b010ed0;  1 drivers
+v000001731b0115b0_0 .net *"_ivl_6", 0 0, L_000001731b1ce410;  1 drivers
+v000001731b010890_0 .net *"_ivl_9", 0 0, L_000001731b010c50;  1 drivers
+v000001731b011650_0 .net "f", 0 0, L_000001731b1ce660;  1 drivers
+o000001731b0171c8 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v000001731b011290_0 .net "x", 4 1, o000001731b0171c8;  0 drivers
+L_000001731b0109d0 .part o000001731b0171c8, 0, 1;
+L_000001731b010ed0 .part o000001731b0171c8, 2, 1;
+L_000001731b010c50 .part o000001731b0171c8, 1, 1;
+L_000001731b011470 .part o000001731b0171c8, 2, 1;
+L_000001731b010bb0 .part o000001731b0171c8, 3, 1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "exams_m2014_q3.v";

@@ -1,0 +1,52 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001bd3f522900 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "x";
+    .port_info 1 /OUTPUT 1 "f";
+L_000001bd3f523200 .functor NOT 1, L_000001bd3f5537d0, C4<0>, C4<0>, C4<0>;
+L_000001bd3f523270 .functor AND 1, L_000001bd3f523200, L_000001bd3f552ab0, C4<1>, C4<1>;
+L_000001bd3f522c30 .functor AND 1, L_000001bd3f552c90, L_000001bd3f5532d0, C4<1>, C4<1>;
+L_000001bd3f24e9e0 .functor AND 1, L_000001bd3f522c30, L_000001bd3f552e70, C4<1>, C4<1>;
+L_000001bd3f24ea50 .functor OR 1, L_000001bd3f523270, L_000001bd3f24e9e0, C4<0>, C4<0>;
+L_000001bd3f24eac0 .functor NOT 1, L_000001bd3f552f10, C4<0>, C4<0>, C4<0>;
+L_000001bd3f24eb30 .functor NOT 1, L_000001bd3f553190, C4<0>, C4<0>, C4<0>;
+L_000001bd3f24eba0 .functor AND 1, L_000001bd3f24eac0, L_000001bd3f24eb30, C4<1>, C4<1>;
+L_000001bd3f24ec10 .functor OR 1, L_000001bd3f24ea50, L_000001bd3f24eba0, C4<0>, C4<0>;
+v000001bd3f522fe0_0 .net *"_ivl_1", 0 0, L_000001bd3f5537d0;  1 drivers
+v000001bd3f553550_0 .net *"_ivl_11", 0 0, L_000001bd3f5532d0;  1 drivers
+v000001bd3f553370_0 .net *"_ivl_12", 0 0, L_000001bd3f522c30;  1 drivers
+v000001bd3f552fb0_0 .net *"_ivl_15", 0 0, L_000001bd3f552e70;  1 drivers
+v000001bd3f553050_0 .net *"_ivl_16", 0 0, L_000001bd3f24e9e0;  1 drivers
+v000001bd3f552b50_0 .net *"_ivl_18", 0 0, L_000001bd3f24ea50;  1 drivers
+v000001bd3f5528d0_0 .net *"_ivl_2", 0 0, L_000001bd3f523200;  1 drivers
+v000001bd3f552dd0_0 .net *"_ivl_21", 0 0, L_000001bd3f552f10;  1 drivers
+v000001bd3f552d30_0 .net *"_ivl_22", 0 0, L_000001bd3f24eac0;  1 drivers
+v000001bd3f552970_0 .net *"_ivl_25", 0 0, L_000001bd3f553190;  1 drivers
+v000001bd3f552bf0_0 .net *"_ivl_26", 0 0, L_000001bd3f24eb30;  1 drivers
+v000001bd3f5530f0_0 .net *"_ivl_28", 0 0, L_000001bd3f24eba0;  1 drivers
+v000001bd3f552a10_0 .net *"_ivl_5", 0 0, L_000001bd3f552ab0;  1 drivers
+v000001bd3f553690_0 .net *"_ivl_6", 0 0, L_000001bd3f523270;  1 drivers
+v000001bd3f553410_0 .net *"_ivl_9", 0 0, L_000001bd3f552c90;  1 drivers
+v000001bd3f553730_0 .net "f", 0 0, L_000001bd3f24ec10;  1 drivers
+o000001bd3f5572a8 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v000001bd3f5535f0_0 .net "x", 4 1, o000001bd3f5572a8;  0 drivers
+L_000001bd3f5537d0 .part o000001bd3f5572a8, 0, 1;
+L_000001bd3f552ab0 .part o000001bd3f5572a8, 2, 1;
+L_000001bd3f552c90 .part o000001bd3f5572a8, 1, 1;
+L_000001bd3f5532d0 .part o000001bd3f5572a8, 2, 1;
+L_000001bd3f552e70 .part o000001bd3f5572a8, 3, 1;
+L_000001bd3f552f10 .part o000001bd3f5572a8, 1, 1;
+L_000001bd3f553190 .part o000001bd3f5572a8, 3, 1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "exams_2012_q1g.v";

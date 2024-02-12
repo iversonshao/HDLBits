@@ -1,0 +1,58 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001dfee3f27f0 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "c";
+    .port_info 3 /INPUT 1 "d";
+    .port_info 4 /OUTPUT 1 "out_sop";
+    .port_info 5 /OUTPUT 1 "out_pos";
+o000001dfee427258 .functor BUFZ 1, C4<z>; HiZ drive
+o000001dfee427288 .functor BUFZ 1, C4<z>; HiZ drive
+L_000001dfee3f32b0 .functor AND 1, o000001dfee427258, o000001dfee427288, C4<1>, C4<1>;
+o000001dfee4271f8 .functor BUFZ 1, C4<z>; HiZ drive
+L_000001dfee3f2ac0 .functor NOT 1, o000001dfee4271f8, C4<0>, C4<0>, C4<0>;
+o000001dfee427228 .functor BUFZ 1, C4<z>; HiZ drive
+L_000001dfee423080 .functor NOT 1, o000001dfee427228, C4<0>, C4<0>, C4<0>;
+L_000001dfee4230f0 .functor AND 1, L_000001dfee3f2ac0, L_000001dfee423080, C4<1>, C4<1>;
+L_000001dfee423160 .functor AND 1, L_000001dfee4230f0, o000001dfee427258, C4<1>, C4<1>;
+L_000001dfee4231d0 .functor OR 1, L_000001dfee3f32b0, L_000001dfee423160, C4<0>, C4<0>;
+L_000001dfee423530 .functor NOT 1, o000001dfee4271f8, C4<0>, C4<0>, C4<0>;
+L_000001dfee423760 .functor OR 1, L_000001dfee423530, o000001dfee427228, C4<0>, C4<0>;
+L_000001dfee4236f0 .functor AND 1, o000001dfee427258, L_000001dfee423760, C4<1>, C4<1>;
+L_000001dfee423840 .functor NOT 1, o000001dfee427228, C4<0>, C4<0>, C4<0>;
+L_000001dfee423450 .functor NOT 1, o000001dfee427258, C4<0>, C4<0>, C4<0>;
+L_000001dfee4233e0 .functor OR 1, L_000001dfee423840, L_000001dfee423450, C4<0>, C4<0>;
+L_000001dfee4237d0 .functor OR 1, L_000001dfee4233e0, o000001dfee427288, C4<0>, C4<0>;
+L_000001dfee4238b0 .functor AND 1, L_000001dfee4236f0, L_000001dfee4237d0, C4<1>, C4<1>;
+v000001dfee3f3090_0 .net *"_ivl_0", 0 0, L_000001dfee3f32b0;  1 drivers
+v000001dfee3f2980_0 .net *"_ivl_12", 0 0, L_000001dfee423530;  1 drivers
+v000001dfee3f2a20_0 .net *"_ivl_14", 0 0, L_000001dfee423760;  1 drivers
+v000001dfee422ca0_0 .net *"_ivl_16", 0 0, L_000001dfee4236f0;  1 drivers
+v000001dfee422840_0 .net *"_ivl_18", 0 0, L_000001dfee423840;  1 drivers
+v000001dfee4227a0_0 .net *"_ivl_2", 0 0, L_000001dfee3f2ac0;  1 drivers
+v000001dfee4220c0_0 .net *"_ivl_20", 0 0, L_000001dfee423450;  1 drivers
+v000001dfee4228e0_0 .net *"_ivl_22", 0 0, L_000001dfee4233e0;  1 drivers
+v000001dfee422660_0 .net *"_ivl_24", 0 0, L_000001dfee4237d0;  1 drivers
+v000001dfee422f20_0 .net *"_ivl_4", 0 0, L_000001dfee423080;  1 drivers
+v000001dfee422a20_0 .net *"_ivl_6", 0 0, L_000001dfee4230f0;  1 drivers
+v000001dfee422c00_0 .net *"_ivl_8", 0 0, L_000001dfee423160;  1 drivers
+v000001dfee422fc0_0 .net "a", 0 0, o000001dfee4271f8;  0 drivers
+v000001dfee422700_0 .net "b", 0 0, o000001dfee427228;  0 drivers
+v000001dfee422980_0 .net "c", 0 0, o000001dfee427258;  0 drivers
+v000001dfee422de0_0 .net "d", 0 0, o000001dfee427288;  0 drivers
+v000001dfee422ac0_0 .net "out_pos", 0 0, L_000001dfee4238b0;  1 drivers
+v000001dfee4222a0_0 .net "out_sop", 0 0, L_000001dfee4231d0;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "exams_ece241_2013_q2.v";
