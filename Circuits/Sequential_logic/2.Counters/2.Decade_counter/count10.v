@@ -6,7 +6,7 @@ module top_module (
     always @(posedge clk) begin
         if (reset) begin
             q <= 4'd0;
-        end else if (q == 4'ha) begin
+        end else if (q == 4'h9) begin
             q <= 4'd0;
         end else begin
             q <= q + 4'd1;
