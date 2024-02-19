@@ -1,0 +1,70 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001d8f8412940 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "load";
+    .port_info 2 /INPUT 2 "ena";
+    .port_info 3 /INPUT 100 "data";
+    .port_info 4 /OUTPUT 100 "q";
+o000001d8f8446fd8 .functor BUFZ 1, C4<z>; HiZ drive
+v000001d8f8412e90_0 .net "clk", 0 0, o000001d8f8446fd8;  0 drivers
+o000001d8f8447008 .functor BUFZ 100, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v000001d8f8412ad0_0 .net "data", 99 0, o000001d8f8447008;  0 drivers
+o000001d8f8447038 .functor BUFZ 2, C4<zz>; HiZ drive
+v000001d8f8412b70_0 .net "ena", 1 0, o000001d8f8447038;  0 drivers
+o000001d8f8447068 .functor BUFZ 1, C4<z>; HiZ drive
+v000001d8f8412c10_0 .net "load", 0 0, o000001d8f8447068;  0 drivers
+v000001d8f83fb9c0_0 .var "q", 99 0;
+E_000001d8f83fc1c0 .event posedge, v000001d8f8412e90_0;
+    .scope S_000001d8f8412940;
+T_0 ;
+    %wait E_000001d8f83fc1c0;
+    %load/vec4 v000001d8f8412c10_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %load/vec4 v000001d8f8412ad0_0;
+    %assign/vec4 v000001d8f83fb9c0_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v000001d8f8412b70_0;
+    %cmpi/e 2, 0, 2;
+    %jmp/0xz  T_0.2, 4;
+    %load/vec4 v000001d8f83fb9c0_0;
+    %parti/s 99, 0, 2;
+    %load/vec4 v000001d8f83fb9c0_0;
+    %parti/s 1, 99, 8;
+    %concat/vec4; draw_concat_vec4
+    %assign/vec4 v000001d8f83fb9c0_0, 0;
+    %jmp T_0.3;
+T_0.2 ;
+    %load/vec4 v000001d8f8412b70_0;
+    %cmpi/e 1, 0, 2;
+    %jmp/0xz  T_0.4, 4;
+    %load/vec4 v000001d8f83fb9c0_0;
+    %parti/s 1, 0, 2;
+    %load/vec4 v000001d8f83fb9c0_0;
+    %parti/s 99, 1, 2;
+    %concat/vec4; draw_concat_vec4
+    %assign/vec4 v000001d8f83fb9c0_0, 0;
+    %jmp T_0.5;
+T_0.4 ;
+    %load/vec4 v000001d8f83fb9c0_0;
+    %assign/vec4 v000001d8f83fb9c0_0, 0;
+T_0.5 ;
+T_0.3 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "rotate100.v";
