@@ -8,7 +8,7 @@ module top_module(
         if (reset) begin
             q <= 5'h1;
         end else begin
-            q[4] <= 0 ^ q[0];
+            q[4] <= q[0]; // x ^ 0 = x
             q[3] <= q[4];
             q[2] <= q[3] ^ q[0];
             q[1] <= q[2];

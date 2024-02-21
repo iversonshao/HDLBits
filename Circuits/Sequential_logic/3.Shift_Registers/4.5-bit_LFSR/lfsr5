@@ -7,62 +7,60 @@
 :vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
 :vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
 :vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
-S_00000250ad2dedf0 .scope module, "top_module" "top_module" 2 1;
+S_0000029d40722bf0 .scope module, "top_module" "top_module" 2 1;
  .timescale 0 0;
     .port_info 0 /INPUT 1 "clk";
     .port_info 1 /INPUT 1 "reset";
     .port_info 2 /OUTPUT 5 "q";
-o00000250ad1e6fd8 .functor BUFZ 1, C4<z>; HiZ drive
-v00000250ad1b3160_0 .net "clk", 0 0, o00000250ad1e6fd8;  0 drivers
-v00000250ad1b3380_0 .var "q", 4 0;
-o00000250ad1e7038 .functor BUFZ 1, C4<z>; HiZ drive
-v00000250ad1b2ef0_0 .net "reset", 0 0, o00000250ad1e7038;  0 drivers
-E_00000250ad1e6a90 .event posedge, v00000250ad1b3160_0;
-    .scope S_00000250ad2dedf0;
+o0000029d40756fa8 .functor BUFZ 1, C4<z>; HiZ drive
+v0000029d40723160_0 .net "clk", 0 0, o0000029d40756fa8;  0 drivers
+v0000029d40723380_0 .var "q", 4 0;
+o0000029d40757008 .functor BUFZ 1, C4<z>; HiZ drive
+v0000029d4070ee80_0 .net "reset", 0 0, o0000029d40757008;  0 drivers
+E_0000029d40708520 .event posedge, v0000029d40723160_0;
+    .scope S_0000029d40722bf0;
 T_0 ;
-    %wait E_00000250ad1e6a90;
-    %load/vec4 v00000250ad1b2ef0_0;
+    %wait E_0000029d40708520;
+    %load/vec4 v0000029d4070ee80_0;
     %flag_set/vec4 8;
     %jmp/0xz  T_0.0, 8;
     %pushi/vec4 1, 0, 5;
-    %assign/vec4 v00000250ad1b3380_0, 0;
+    %assign/vec4 v0000029d40723380_0, 0;
     %jmp T_0.1;
 T_0.0 ;
-    %pushi/vec4 0, 0, 1;
-    %load/vec4 v00000250ad1b3380_0;
+    %load/vec4 v0000029d40723380_0;
     %parti/s 1, 0, 2;
-    %xor;
     %ix/load 4, 4, 0;
     %ix/load 5, 0, 0;
     %flag_set/imm 4, 0;
-    %assign/vec4/off/d v00000250ad1b3380_0, 4, 5;
-    %load/vec4 v00000250ad1b3380_0;
+    %assign/vec4/off/d v0000029d40723380_0, 4, 5;
+    %load/vec4 v0000029d40723380_0;
     %parti/s 1, 4, 4;
     %ix/load 4, 3, 0;
     %ix/load 5, 0, 0;
     %flag_set/imm 4, 0;
-    %assign/vec4/off/d v00000250ad1b3380_0, 4, 5;
-    %load/vec4 v00000250ad1b3380_0;
+    %assign/vec4/off/d v0000029d40723380_0, 4, 5;
+    %load/vec4 v0000029d40723380_0;
     %parti/s 1, 3, 3;
-    %load/vec4 v00000250ad1b3380_0;
+    %load/vec4 v0000029d40723380_0;
     %parti/s 1, 0, 2;
     %xor;
     %ix/load 4, 2, 0;
     %ix/load 5, 0, 0;
     %flag_set/imm 4, 0;
-    %assign/vec4/off/d v00000250ad1b3380_0, 4, 5;
-    %load/vec4 v00000250ad1b3380_0;
+    %assign/vec4/off/d v0000029d40723380_0, 4, 5;
+    %load/vec4 v0000029d40723380_0;
     %parti/s 1, 2, 3;
     %ix/load 4, 1, 0;
     %ix/load 5, 0, 0;
     %flag_set/imm 4, 0;
-    %assign/vec4/off/d v00000250ad1b3380_0, 4, 5;
-    %load/vec4 v00000250ad1b3380_0;
+    %assign/vec4/off/d v0000029d40723380_0, 4, 5;
+    %load/vec4 v0000029d40723380_0;
     %parti/s 1, 1, 2;
     %ix/load 4, 0, 0;
     %ix/load 5, 0, 0;
     %flag_set/imm 4, 0;
-    %assign/vec4/off/d v00000250ad1b3380_0, 4, 5;
+    %assign/vec4/off/d v0000029d40723380_0, 4, 5;
 T_0.1 ;
     %jmp T_0;
     .thread T_0;
