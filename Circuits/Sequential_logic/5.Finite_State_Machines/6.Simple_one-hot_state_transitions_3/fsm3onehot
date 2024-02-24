@@ -1,0 +1,68 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000018d29262940 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "in";
+    .port_info 1 /INPUT 4 "state";
+    .port_info 2 /OUTPUT 4 "next_state";
+    .port_info 3 /OUTPUT 1 "out";
+P_0000018d2924eaa0 .param/l "A" 0 2 8, +C4<00000000000000000000000000000000>;
+P_0000018d2924ead8 .param/l "B" 0 2 8, +C4<00000000000000000000000000000001>;
+P_0000018d2924eb10 .param/l "C" 0 2 8, +C4<00000000000000000000000000000010>;
+P_0000018d2924eb48 .param/l "D" 0 2 8, +C4<00000000000000000000000000000011>;
+L_0000018d2924e600 .functor OR 1, L_0000018d29292b40, L_0000018d29290f20, C4<0>, C4<0>;
+o0000018d29297318 .functor BUFZ 1, C4<z>; HiZ drive
+L_0000018d29262e90 .functor NOT 1, o0000018d29297318, C4<0>, C4<0>, C4<0>;
+L_0000018d29248e30 .functor AND 1, L_0000018d2924e600, L_0000018d29262e90, C4<1>, C4<1>;
+L_0000018d29263220 .functor OR 1, L_0000018d292923c0, L_0000018d29292320, C4<0>, C4<0>;
+L_0000018d29262be0 .functor OR 1, L_0000018d29263220, L_0000018d29291ba0, C4<0>, C4<0>;
+L_0000018d29262c50 .functor AND 1, L_0000018d29262be0, o0000018d29297318, C4<1>, C4<1>;
+L_0000018d292dfc20 .functor OR 1, L_0000018d29292280, L_0000018d29291920, C4<0>, C4<0>;
+L_0000018d29292ea0 .functor NOT 1, o0000018d29297318, C4<0>, C4<0>, C4<0>;
+L_0000018d29293060 .functor AND 1, L_0000018d292dfc20, L_0000018d29292ea0, C4<1>, C4<1>;
+L_0000018d292930d0 .functor AND 1, L_0000018d29292820, o0000018d29297318, C4<1>, C4<1>;
+v0000018d29287640_0 .net *"_ivl_10", 0 0, L_0000018d29248e30;  1 drivers
+v0000018d292875a0_0 .net *"_ivl_15", 0 0, L_0000018d292923c0;  1 drivers
+v0000018d292876e0_0 .net *"_ivl_17", 0 0, L_0000018d29292320;  1 drivers
+v0000018d292873c0_0 .net *"_ivl_18", 0 0, L_0000018d29263220;  1 drivers
+v0000018d29286e20_0 .net *"_ivl_21", 0 0, L_0000018d29291ba0;  1 drivers
+v0000018d29286ba0_0 .net *"_ivl_22", 0 0, L_0000018d29262be0;  1 drivers
+v0000018d29287780_0 .net *"_ivl_24", 0 0, L_0000018d29262c50;  1 drivers
+v0000018d29287280_0 .net *"_ivl_29", 0 0, L_0000018d29292280;  1 drivers
+v0000018d29286920_0 .net *"_ivl_3", 0 0, L_0000018d29292b40;  1 drivers
+v0000018d29286880_0 .net *"_ivl_31", 0 0, L_0000018d29291920;  1 drivers
+v0000018d29287460_0 .net *"_ivl_32", 0 0, L_0000018d292dfc20;  1 drivers
+v0000018d29286c40_0 .net *"_ivl_34", 0 0, L_0000018d29292ea0;  1 drivers
+v0000018d29287320_0 .net *"_ivl_36", 0 0, L_0000018d29293060;  1 drivers
+v0000018d29287500_0 .net *"_ivl_42", 0 0, L_0000018d29292820;  1 drivers
+v0000018d29286ce0_0 .net *"_ivl_43", 0 0, L_0000018d292930d0;  1 drivers
+v0000018d292870a0_0 .net *"_ivl_5", 0 0, L_0000018d29290f20;  1 drivers
+v0000018d29286d80_0 .net *"_ivl_6", 0 0, L_0000018d2924e600;  1 drivers
+v0000018d29286ec0_0 .net *"_ivl_8", 0 0, L_0000018d29262e90;  1 drivers
+v0000018d29287140_0 .net "in", 0 0, o0000018d29297318;  0 drivers
+v0000018d292871e0_0 .net "next_state", 3 0, L_0000018d29290fc0;  1 drivers
+v0000018d29292140_0 .net "out", 0 0, L_0000018d29292000;  1 drivers
+o0000018d292973a8 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v0000018d29292aa0_0 .net "state", 3 0, o0000018d292973a8;  0 drivers
+L_0000018d29292b40 .part o0000018d292973a8, 0, 1;
+L_0000018d29290f20 .part o0000018d292973a8, 2, 1;
+L_0000018d292923c0 .part o0000018d292973a8, 0, 1;
+L_0000018d29292320 .part o0000018d292973a8, 1, 1;
+L_0000018d29291ba0 .part o0000018d292973a8, 3, 1;
+L_0000018d29292280 .part o0000018d292973a8, 1, 1;
+L_0000018d29291920 .part o0000018d292973a8, 3, 1;
+L_0000018d29290fc0 .concat8 [ 1 1 1 1], L_0000018d29248e30, L_0000018d29262c50, L_0000018d29293060, L_0000018d292930d0;
+L_0000018d29292820 .part o0000018d292973a8, 2, 1;
+L_0000018d29292000 .part o0000018d292973a8, 3, 1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "fsm3onehot.v";
