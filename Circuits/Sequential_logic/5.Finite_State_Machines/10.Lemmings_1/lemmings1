@@ -1,0 +1,114 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000022e2adf2830 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "areset";
+    .port_info 2 /INPUT 1 "bump_left";
+    .port_info 3 /INPUT 1 "bump_right";
+    .port_info 4 /OUTPUT 1 "walk_left";
+    .port_info 5 /OUTPUT 1 "walk_right";
+P_0000022e2adf32f0 .param/l "left" 0 2 11, +C4<00000000000000000000000000000000>;
+P_0000022e2adf3328 .param/l "right" 0 2 11, +C4<00000000000000000000000000000001>;
+v0000022e2adf2e90_0 .net *"_ivl_0", 31 0, L_0000022e2ae72280;  1 drivers
+L_0000022e2ae72cd8 .functor BUFT 1, C4<0000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000022e2addbe60_0 .net *"_ivl_11", 30 0, L_0000022e2ae72cd8;  1 drivers
+L_0000022e2ae72d20 .functor BUFT 1, C4<00000000000000000000000000000001>, C4<0>, C4<0>, C4<0>;
+v0000022e2addad60_0 .net/2u *"_ivl_12", 31 0, L_0000022e2ae72d20;  1 drivers
+L_0000022e2ae72c48 .functor BUFT 1, C4<0000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000022e2adf29c0_0 .net *"_ivl_3", 30 0, L_0000022e2ae72c48;  1 drivers
+L_0000022e2ae72c90 .functor BUFT 1, C4<00000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000022e2adf2a60_0 .net/2u *"_ivl_4", 31 0, L_0000022e2ae72c90;  1 drivers
+v0000022e2adf2b00_0 .net *"_ivl_8", 31 0, L_0000022e2ae71e20;  1 drivers
+o0000022e2ae270d8 .functor BUFZ 1, C4<z>; HiZ drive
+v0000022e2adf2ba0_0 .net "areset", 0 0, o0000022e2ae270d8;  0 drivers
+o0000022e2ae27108 .functor BUFZ 1, C4<z>; HiZ drive
+v0000022e2ae238b0_0 .net "bump_left", 0 0, o0000022e2ae27108;  0 drivers
+o0000022e2ae27138 .functor BUFZ 1, C4<z>; HiZ drive
+v0000022e2ae23950_0 .net "bump_right", 0 0, o0000022e2ae27138;  0 drivers
+o0000022e2ae27168 .functor BUFZ 1, C4<z>; HiZ drive
+v0000022e2ae239f0_0 .net "clk", 0 0, o0000022e2ae27168;  0 drivers
+v0000022e2ae726e0_0 .var "next_state", 0 0;
+v0000022e2ae720a0_0 .var "state", 0 0;
+v0000022e2ae71ce0_0 .net "walk_left", 0 0, L_0000022e2ae72780;  1 drivers
+v0000022e2ae71b00_0 .net "walk_right", 0 0, L_0000022e2ae72140;  1 drivers
+E_0000022e2ae265e0 .event posedge, v0000022e2adf2ba0_0, v0000022e2ae239f0_0;
+E_0000022e2ae25fe0 .event anyedge, v0000022e2ae720a0_0, v0000022e2ae238b0_0, v0000022e2ae23950_0;
+L_0000022e2ae72280 .concat [ 1 31 0 0], v0000022e2ae720a0_0, L_0000022e2ae72c48;
+L_0000022e2ae72780 .cmp/eq 32, L_0000022e2ae72280, L_0000022e2ae72c90;
+L_0000022e2ae71e20 .concat [ 1 31 0 0], v0000022e2ae720a0_0, L_0000022e2ae72cd8;
+L_0000022e2ae72140 .cmp/eq 32, L_0000022e2ae71e20, L_0000022e2ae72d20;
+    .scope S_0000022e2adf2830;
+T_0 ;
+    %wait E_0000022e2ae25fe0;
+    %load/vec4 v0000022e2ae720a0_0;
+    %dup/vec4;
+    %pushi/vec4 0, 0, 1;
+    %cmp/u;
+    %jmp/1 T_0.0, 6;
+    %dup/vec4;
+    %pushi/vec4 1, 0, 1;
+    %cmp/u;
+    %jmp/1 T_0.1, 6;
+    %jmp T_0.2;
+T_0.0 ;
+    %load/vec4 v0000022e2ae238b0_0;
+    %flag_set/vec4 8;
+    %jmp/0 T_0.3, 8;
+    %pushi/vec4 1, 0, 32;
+    %jmp/1 T_0.4, 8;
+T_0.3 ; End of true expr.
+    %pushi/vec4 0, 0, 32;
+    %jmp/0 T_0.4, 8;
+ ; End of false expr.
+    %blend;
+T_0.4;
+    %pad/s 1;
+    %store/vec4 v0000022e2ae726e0_0, 0, 1;
+    %jmp T_0.2;
+T_0.1 ;
+    %load/vec4 v0000022e2ae23950_0;
+    %flag_set/vec4 8;
+    %jmp/0 T_0.5, 8;
+    %pushi/vec4 0, 0, 32;
+    %jmp/1 T_0.6, 8;
+T_0.5 ; End of true expr.
+    %pushi/vec4 1, 0, 32;
+    %jmp/0 T_0.6, 8;
+ ; End of false expr.
+    %blend;
+T_0.6;
+    %pad/s 1;
+    %store/vec4 v0000022e2ae726e0_0, 0, 1;
+    %jmp T_0.2;
+T_0.2 ;
+    %pop/vec4 1;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0000022e2adf2830;
+T_1 ;
+    %wait E_0000022e2ae265e0;
+    %load/vec4 v0000022e2adf2ba0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_1.0, 8;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0000022e2ae720a0_0, 0;
+    %jmp T_1.1;
+T_1.0 ;
+    %load/vec4 v0000022e2ae726e0_0;
+    %assign/vec4 v0000022e2ae720a0_0, 0;
+T_1.1 ;
+    %jmp T_1;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "lemmings1.v";
