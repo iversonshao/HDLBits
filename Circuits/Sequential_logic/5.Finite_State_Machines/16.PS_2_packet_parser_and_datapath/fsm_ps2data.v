@@ -32,6 +32,6 @@ module top_module(
             A:out_bytes[23:16] <= in;
             B:out_bytes[15:8] <= in;
             C:out_bytes[7:0] <= in;
-            D:out_bytes[23:16] <= in; //maybe D will be first state.
+            D:out_bytes[23:16] <= in; 
         endcase
 endmodule
